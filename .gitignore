@@ -10,3 +10,10 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+
+pytorch
+pytorch-install
+pytorch-build
+libtorch
+
+.DS_Store
