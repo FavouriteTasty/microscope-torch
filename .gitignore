@@ -17,3 +17,9 @@ pytorch-build
 libtorch
 
 .DS_Store
+build/**/*
+*.jpg
+*.npy
+*.a
+*.pt
+*.onnx

@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 设置 Libtorch 的路径
-set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/pytorch-install/share/cmake/Torch")
+set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/libtorch/share/cmake/Torch")
 
 # 找到 Libtorch
 find_package(Torch REQUIRED)
@@ -21,7 +21,7 @@ target_compile_definitions(BaseLib PRIVATE ${TORCH_DEFINITIONS})
 target_link_libraries(BaseLib "${TORCH_LIBRARIES}")
 
 # 主程序目标
-add_executable(LibtorchExample src/main.cpp)
+add_executable(LibtorchExample src/main-split.cpp)
 
 # 添加 Libtorch 的头文件路径和编译定义给主目标
 target_include_directories(LibtorchExample PRIVATE ${TORCH_INCLUDE_DIRS})

@@ -12,6 +12,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <chrono>
 
 // 函数：填充图像，使其尺寸可被patch_size整除
 void pad_image(std::vector<uint8_t>& image, int& width, int& height, int channels, int patch_size) {
@@ -39,8 +40,10 @@ void pad_image(std::vector<uint8_t>& image, int& width, int& height, int channel
 
 int main(int argc, char* argv[]) {
 
+    auto start = std::chrono::high_resolution_clock::now();
+
     const char* input_image_path = "../small-input.jpg";
-    const char* output_image_path = "../output.jpg";
+    const char* output_image_path = "../whole-output.jpg";
 
     // 使用stb_image加载图像
     int width, height, channels;
@@ -172,6 +175,10 @@ int main(int argc, char* argv[]) {
     }
 
     std::cout << "已保存处理后的图像到 " << output_image_path << "\n";
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+    std::cout << "代码块运行时间: " << duration.count() << " 毫秒" << std::endl;
 
     return 0;
 }
